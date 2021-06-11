@@ -6,6 +6,9 @@ npm start
 
 # End Point
 GET localhost:3000/books
+
 POST localhost:3000/books
+
 PUT localhost:3000/books/:id
+
 DELETE localhost:3000/books/:id
