@@ -3,7 +3,7 @@ const router = express.Router()
 const conn = require('../config.js');
 
 //tampilkan semua data buku
-router.get('/',(res) => {
+router.get('/',(req, res) => {
     let sql = "SELECT * FROM books";
     conn.query(sql, (err, results) => {
       if(err) throw err;
