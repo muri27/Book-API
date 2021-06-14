@@ -52,4 +52,41 @@ router.delete('/:id',(req, res) => {
     });
 });
 
+router.get('/title/:judul', (req, res)=>{
+    let sql = "SELECT * FROM books WHERE title LIKE '%"+req.params.judul+"%'";
+    conn.query(sql,(err, results)=>{
+        if(err) throw err;
+        if(results != null){
+            res.json({"success" : "true", "data": results});
+        }else{
+            res.json({"success" : "false", "message": "Data Buku Dengan Judul "+req.params.judul+" Tidak Ditemukan"});
+        }
+    })
+})
+
+
+router.get('/author/:penulis', (req, res)=>{
+    let sql = "SELECT * FROM books WHERE author LIKE '%"+req.params.penulis+"%'";
+    conn.query(sql,(err, results)=>{
+        if(err) throw err;
+        if(results.length != 0){
+            res.json({"success" : "true", "data": results});
+        }else{
+            res.json({"success" : "false", "message": "Data Buku Dengan Author "+req.params.penulis+" Tidak Ditemukan"});
+        }
+    })
+})
+
+router.get('/year/:tahun', (req, res)=>{
+    let sql = "SELECT * FROM books WHERE year LIKE '"+req.params.tahun+"'";
+    conn.query(sql,(err, results)=>{
+        if(err) throw err;
+        if(results.length != 0){
+            res.json({"success" : "true", "data": results});
+        }else{
+            res.json({"success" : "false", "message": "Data Buku Dengan Tahun "+req.params.tahun+" Tidak Ditemukan"});
+        }
+    })
+})
+
 module.exports = router;
