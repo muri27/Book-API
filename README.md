@@ -1,5 +1,5 @@
 # Book-API
-API untuk keperluan tugas Praktikum SAIT
+API for show book data with MySQL for database from freedb.tech
 
 # Usage
 npm start
